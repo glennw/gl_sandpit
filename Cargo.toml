@@ -1,0 +1,12 @@
+[package]
+name = "gl_sandpit"
+version = "0.1.0"
+authors = ["Glenn Watson <github@intuitionlibrary.com>"]
+
+[dependencies]
+glutin = "0.6.1"
+gleam = "0.2.22"
+image = "0.10.3"
+freetype-rs = "0.11.0"
+time = "0.1"
+inotify = "0.3.0"
