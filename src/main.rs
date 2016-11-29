@@ -7,7 +7,7 @@ mod util;
 extern crate glutin;
 extern crate gleam;
 extern crate time;
-extern crate inotify;
+//extern crate inotify;
 
 use app::{App, AppKind};
 use gfx::GfxContext;

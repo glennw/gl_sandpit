@@ -1,7 +1,7 @@
 use gleam::gl;
 use glutin::WindowProxy;
-use inotify::INotify;
-use inotify::ffi::*;
+//use inotify::INotify;
+//use inotify::ffi::*;
 use std::collections::HashMap;
 use std::mem;
 use std::path::PathBuf;
@@ -137,7 +137,7 @@ pub struct GfxContext {
     scale_y: f32,
     next_id: usize,
     programs: HashMap<ProgramId, Program>,
-    watch_rx: Receiver<String>,
+    //watch_rx: Receiver<String>,
 }
 
 impl GfxContext {
@@ -147,6 +147,7 @@ impl GfxContext {
         let mut shared_path = res_path.clone();
         shared_path.push("shared.glsl");
 
+/*
         let (watch_tx, watch_rx) = channel();
         let watch_path = res_path.clone();
         thread::spawn(move || {
@@ -159,7 +160,7 @@ impl GfxContext {
                 }
                 window_proxy.wakeup_event_loop();
             }
-        });
+        });*/
 
         let x0 = 0.0;
         let y0 = 0.0;
@@ -221,11 +222,12 @@ impl GfxContext {
             scale_y: 1.0,
             next_id: 0,
             programs: HashMap::new(),
-            watch_rx: watch_rx,
+            //watch_rx: watch_rx,
         }
     }
 
     pub fn begin_frame(&mut self, width: u32, height: u32) {
+        /*
         let mut files_modified = false;
         while let Ok(_changed_file) = self.watch_rx.try_recv() {
             files_modified = true;
@@ -233,7 +235,7 @@ impl GfxContext {
         }
         if files_modified {
             self.refresh_shaders();
-        }
+        }*/
 
         gl::depth_mask(false);
         gl::disable(gl::STENCIL_TEST);
