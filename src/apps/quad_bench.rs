@@ -1,5 +1,6 @@
 use app::{App, AppKind};
 use gfx::{GfxContext, ProgramId, VertexDataTexture, TextureSampler, VertexTextureFormat};
+use gleam::gl;
 use types::ColorF;
 
 pub struct QuadBench {
@@ -13,6 +14,12 @@ impl QuadBench {
     pub fn new(gfx: &mut GfxContext,
                clear_count: usize,
                quad_count: usize) -> QuadBench {
+        if clear_count == 0 && quad_count == 0 {
+            println!("{}", gl::get_string(gl::RENDERER));
+            println!("{}", gl::get_string(gl::VERSION));
+            println!("{}", gl::get_string(gl::VENDOR));
+        }
+
         QuadBench {
             clear_count: clear_count,
             quad_count: quad_count,
